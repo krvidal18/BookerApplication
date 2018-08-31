@@ -4,7 +4,9 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import com.example.demo.model.Image;
 import com.example.demo.model.TravelPackage;
+import com.example.demo.model.TravelService;
 import com.example.demo.repository.ImageRepository;
 import com.example.demo.repository.TravelPackageRepository;
 
@@ -28,8 +30,17 @@ public class TravelPackageService {
 	@Transactional
 	public List<TravelPackage> createTravelPackages(List<TravelPackage> travelPackages) {
 		for (TravelPackage travelPackage : travelPackages) {
-			travelServiceService.createServices(travelPackage.getAvailableServiceList());
-			imageRepository.saveAll(travelPackage.getImages());
+			List<Image> images = travelPackage.getImages();
+			for (Image image : images) {
+				image.setTravelPackage(travelPackage);
+			}
+			imageRepository.saveAll(images);
+
+			List<TravelService> travelServices = travelPackage.getAvailableServiceList();
+			for (TravelService service : travelServices) {
+				service.setTravelPackage(travelPackage);
+			}
+			travelServiceService.createServices(travelServices);
 		}
 		return (List<TravelPackage>) travelPackageRepository.saveAll(travelPackages);
 	}

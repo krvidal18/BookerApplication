@@ -16,8 +16,8 @@ public class TravelService {
 	private int serviceId;
 	private String serviceName;
 	private String description;
-	@OneToMany
-	private List<Image> image;
+	@OneToMany(mappedBy = "travelService")
+	private List<Image> images;
 
 	@ManyToOne
 	@JoinColumn(name = "travelPackageId")
@@ -47,12 +47,12 @@ public class TravelService {
 		this.description = description;
 	}
 
-	public List<Image> getImage() {
-		return image;
+	public List<Image> getImages() {
+		return images;
 	}
 
-	public void setImage(List<Image> image) {
-		this.image = image;
+	public void setImages(List<Image> images) {
+		this.images = images;
 	}
 
 	public TravelPackage getTravelPackage() {

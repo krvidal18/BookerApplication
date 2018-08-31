@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.model.TravelService;
 
 @Repository
-public interface ServiceRepository extends CrudRepository<TravelService, Integer> {
+public interface TravelServiceRepository extends CrudRepository<TravelService, Integer> {
 
 }

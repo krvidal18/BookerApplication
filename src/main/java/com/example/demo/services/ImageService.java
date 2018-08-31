@@ -18,4 +18,9 @@ public class ImageService {
 	public List<Image> createImages(List<Image> images) {
 		return (List<Image>) imageRepository.saveAll(images);
 	}
+
+	@Transactional
+	public List<Image> getImages() {
+		return (List<Image>) imageRepository.findAll();
+	}
 }

@@ -2,12 +2,7 @@ package com.example.demo.model;
 
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-@Entity
 public class Reservation {
-	@Id
 	private int reservationId;
 	private List<TravelService> availedServiceList;
 	private String departureDate;
@@ -44,5 +39,4 @@ public class Reservation {
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
-
 }

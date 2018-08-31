@@ -17,6 +17,7 @@ public class TravelPackage {
 	private List<TravelService> availableServiceList;
 	@OneToMany(mappedBy = "travelPackage")
 	private List<Image> images;
+	private String description;
 
 	public int getTravelPackageId() {
 		return travelPackageId;
@@ -48,6 +49,14 @@ public class TravelPackage {
 
 	public void setImages(List<Image> images) {
 		this.images = images;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 }

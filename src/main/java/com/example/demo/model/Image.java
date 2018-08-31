@@ -18,6 +18,18 @@ public class Image {
 	@JoinColumn(name = "travelPackageId")
 	TravelPackage travelPackage;
 
+	@ManyToOne
+	@JoinColumn(name = "serviceId")
+	TravelService travelService;
+
+	public TravelService getTravelService() {
+		return travelService;
+	}
+
+	public void setTravelService(TravelService travelService) {
+		this.travelService = travelService;
+	}
+
 	public int getImageId() {
 		return imageId;
 	}
