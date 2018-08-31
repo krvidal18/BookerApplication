@@ -1,10 +1,17 @@
 package com.example.demo.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Feedback {
+	@Id
+	@GeneratedValue
 	private int feedbackId;
 	private String feedback;
 	private int rate;
-	private Reservation reservation;
+	// private Reservation reservation;
 
 	public int getFeedbackId() {
 		return feedbackId;
@@ -30,12 +37,11 @@ public class Feedback {
 		this.rate = rate;
 	}
 
-	public Reservation getReservation() {
-		return reservation;
-	}
-
-	public void setReservation(Reservation reservation) {
-		this.reservation = reservation;
-	}
+	/*
+	 * public Reservation getReservation() { return reservation; }
+	 * 
+	 * public void setReservation(Reservation reservation) { this.reservation =
+	 * reservation; }
+	 */
 
 }

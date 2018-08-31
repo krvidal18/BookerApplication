@@ -5,6 +5,8 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -16,6 +18,10 @@ public class TravelService {
 	private String description;
 	@OneToMany
 	private List<Image> image;
+
+	@ManyToOne
+	@JoinColumn(name = "travelPackageId")
+	TravelPackage travelPackage;
 
 	public int getServiceId() {
 		return serviceId;
@@ -47,6 +53,14 @@ public class TravelService {
 
 	public void setImage(List<Image> image) {
 		this.image = image;
+	}
+
+	public TravelPackage getTravelPackage() {
+		return travelPackage;
+	}
+
+	public void setTravelPackage(TravelPackage travelPackage) {
+		this.travelPackage = travelPackage;
 	}
 
 }

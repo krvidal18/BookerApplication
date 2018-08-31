@@ -3,16 +3,12 @@ package com.example.demo.model;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Reservation {
 	@Id
-	@GeneratedValue
 	private int reservationId;
-	@OneToMany
 	private List<TravelService> availedServiceList;
 	private String departureDate;
 	private Customer customer;

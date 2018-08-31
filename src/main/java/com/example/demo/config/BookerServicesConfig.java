@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import com.example.demo.repository.CustomerRepository;
 import com.example.demo.repository.ImageRepository;
 import com.example.demo.repository.ReservationRepository;
+import com.example.demo.repository.ServiceRepository;
 import com.example.demo.repository.TravelPackageRepository;
 import com.example.demo.services.CustomerService;
 import com.example.demo.services.ReservationService;
@@ -28,5 +29,11 @@ public class BookerServicesConfig {
 	public TravelPackageService travelPackageService(TravelPackageRepository travelPackageRepository,
 			TravelServiceService travelServiceService, ImageRepository imageRepository) {
 		return new TravelPackageService(travelPackageRepository, travelServiceService, imageRepository);
+	}
+
+	@Bean
+	public TravelServiceService travelServiceService(ServiceRepository serviceRepository,
+			ImageRepository imageRepository) {
+		return new TravelServiceService(serviceRepository, imageRepository);
 	}
 }

@@ -13,9 +13,9 @@ public class TravelPackage {
 	@GeneratedValue
 	private int travelPackageId;
 	private String packageName;
-	@OneToMany
+	@OneToMany(mappedBy = "travelPackage")
 	private List<TravelService> availableServiceList;
-	@OneToMany
+	@OneToMany(mappedBy = "travelPackage")
 	private List<Image> images;
 
 	public int getTravelPackageId() {

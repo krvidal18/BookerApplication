@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.springframework.web.bind.annotation.RequestParam;
+
 import com.example.demo.model.Customer;
 import com.example.demo.repository.CustomerRepository;
 
@@ -39,7 +41,7 @@ public class CustomerService {
 
 	// deletes a list of customers
 	@Transactional
-	public void deleteCustomers(List<Customer> customers) {
+	public void deleteCustomers(@RequestParam List<Customer> customers) {
 		customerRepository.deleteAll(customers);
 	}
 }
